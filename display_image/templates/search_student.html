@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: blue;}
+        hr{border-width: 5px;
+        border-color: red;}
+    </style>
+</head>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="100%" height="150px"/>
+    <br><br>
+    <hr><hr>
+    <br><br>
+    <h1><strong>WELCOME TO KPM BERANANG STUDENT SITE</strong></h1>
+    <br><br>
+
+    <form action="" method="get">
+        STUDENT ID <input type="text" name="s_id">
+        <input type="submit" value="SEARCH">
+    </form>
+
+    <p style="text-align: center;">
+        <a href="{% url 'index' %}" ><strong>HOME</strong></a>
+    </p>
+    
+    {% for value in data %}
+        <img src="{{value.picture.url}}" width="300px" height="350px" /> <br><br>
+        ID: {{value.id}} <br><br>
+        Name: {{value.name}} <br><br>
+        Address: {{value.address}}0 <br><br>
+        Phone: {{value.phone}} <br>
+    {% endfor %}
+    
+</body>
+</html>
